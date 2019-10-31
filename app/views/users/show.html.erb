@@ -1,0 +1,10 @@
+<h1>Profil de l'auteur n°<%=params[:id]%>: </h1>
+  <%now = Time.now.utc.to_date%>
+
+  <p>Auteur : <%=@profil.name%><p>
+  <p>Email: : <%=@profil.email%><p>
+  <p>Description : <%=@profil.description%><p>
+  <p>age : <%=now.year - @profil.birthdate.year%></p>
+  <p>Date de naissance : <%=@profil.birthdate%><p>
+  <p>Ville : <%=City.find(@profil.city_id).name%><p>
+  <%= link_to "Pour voir la ville de cet auteur et les potins de cette ville c'est ici", city_path(@profil.city_id) %>

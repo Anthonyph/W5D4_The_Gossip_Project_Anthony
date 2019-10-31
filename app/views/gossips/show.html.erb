@@ -1,0 +1,15 @@
+
+<h1>Detail du Gossip n° <%=@detail.id%> </h1>
+
+
+  <p>Auteur : <%=@detail.user.name%><p>
+  <p>Titre : <%=@detail.title%><p>
+  <p>Contenu : <%=@detail.content%><p>
+  <p>Date de parution : <%=@detail.date%><p>
+  <p>Ville de l'auteur : <%=City.find(@detail.user.city_id).name%><p></br>
+  <%= link_to "Editer le potin", edit_gossip_path(@detail.id) %></br>
+  <%= link_to "Voir le profil de l'auteur", user_path(@detail.user.id) %></br>
+  <%= link_to "Pour voir la ville de cet auteur et les potins de cette ville c'est ici", city_path(@detail.user.city_id) %></br>
+  <%= form_tag url_for(action:'destroy'),method:"delete" do%>
+  <%= submit_tag "supprimer" %>  
+    <% end %>  

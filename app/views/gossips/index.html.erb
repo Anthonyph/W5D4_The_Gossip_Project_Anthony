@@ -1,0 +1,32 @@
+<center><h1>Accueil</h1></br></center>
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Bienvenue à THE GOSSIP PROJECT</h1>
+    <p class="lead">Ici, tous les potins de THP et de Navarre ! </p>
+  </div>
+</div>
+<p> . </p>
+<p> . </p>
+<center><h4><%= link_to "Hey ! Clique ici pour écrire un nouveau GOSSIP ! ", new_gossip_path %> </h4></center>
+<p> . </p>
+<p> . </p>
+
+<div class ="card-columns">
+<%@array.each do |liste|%>
+  <center>
+  <div class="card" style="width: 50rem;">
+  <h5 class="card-header"><%=liste.user.name%></h5>
+  <div class="card-body">
+    <h5 class="card-title"><%=liste.title%></h5>
+    <h5 class="card-title"><%=liste.id%></h5>
+    <%= link_to "Viens lire le gossip", gossip_path(liste.id) %>
+  </div>
+  </center>
+</div>
+
+ </div>
+
+</br>
+</br>
+<% end %>
